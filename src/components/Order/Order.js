@@ -1,10 +1,15 @@
 import React from 'react';
+
 import classes from './Order.css';
 
-const Order = (props) => {
+const order = (props) => {
 	const ingredients = [];
+
 	for (let ingredientName in props.ingredients) {
-		ingredients.push({ name: ingredientName, amount: props.ingredients[ingredientName] });
+		ingredients.push({
+			name: ingredientName,
+			amount: props.ingredients[ingredientName]
+		});
 	}
 
 	const ingredientOutput = ingredients.map((ig) => {
@@ -33,4 +38,5 @@ const Order = (props) => {
 		</div>
 	);
 };
-export default Order;
+
+export default order;

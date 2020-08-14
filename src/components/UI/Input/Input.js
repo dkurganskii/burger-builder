@@ -1,8 +1,10 @@
 import React from 'react';
+
 import classes from './Input.css';
 
 const input = (props) => {
 	let inputElement = null;
+
 	switch (props.elementType) {
 		case 'input':
 			inputElement = (
@@ -14,7 +16,7 @@ const input = (props) => {
 				/>
 			);
 			break;
-		case 'textaria':
+		case 'textarea':
 			inputElement = (
 				<textarea
 					className={classes.InputElement}
@@ -26,12 +28,7 @@ const input = (props) => {
 			break;
 		case 'select':
 			inputElement = (
-				<select
-					className={classes.InputElement}
-					{...props.elementConfig}
-					value={props.value}
-					onChange={props.changed}
-				>
+				<select className={classes.InputElement} value={props.value} onChange={props.changed}>
 					{props.elementConfig.options.map((option) => (
 						<option key={option.value} value={option.value}>
 							{option.displayValue}
@@ -41,7 +38,14 @@ const input = (props) => {
 			);
 			break;
 		default:
-			inputElement = <input className={classes.InputElement} value={props.value} />;
+			inputElement = (
+				<input
+					className={classes.InputElement}
+					{...props.elementConfig}
+					value={props.value}
+					onChange={props.changed}
+				/>
+			);
 	}
 
 	return (
@@ -51,4 +55,5 @@ const input = (props) => {
 		</div>
 	);
 };
+
 export default input;

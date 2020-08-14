@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+
 import Button from '../../../components/UI/Button/Button';
+import Spinner from '../../../components/UI/Spinner/Spinner';
 import classes from './ContactData.css';
 import axios from '../../../axios-orders';
-import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
 
 class ContactData extends Component {
@@ -24,7 +25,7 @@ class ContactData extends Component {
 				},
 				value: ''
 			},
-			zipcode: {
+			zipCode: {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
@@ -83,7 +84,6 @@ class ContactData extends Component {
 			.catch((error) => {
 				this.setState({ loading: false });
 			});
-		console.log(this.props.ingredients);
 	};
 
 	inputChangedHandler = (event, inputIdentifier) => {
