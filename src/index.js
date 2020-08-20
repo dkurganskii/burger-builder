@@ -7,9 +7,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reducer from './store/reducer';
+import burgerBuildeReducer from './store/reducers/burgerBuilder';
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware()));
+const store = createStore(burgerBuildeReducer, composeWithDevTools(applyMiddleware()));
+
+// const store = createStore(
+// 	burgerBuildeReducer,
+// 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
 
 const app = (
 	<Provider store={store}>
