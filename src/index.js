@@ -6,7 +6,6 @@ import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import burgerBuildeReducer from './store/reducers/burgerBuilder';
 import thunk from 'redux-thunk';
 
