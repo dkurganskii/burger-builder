@@ -4,11 +4,11 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
-import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import { connect } from 'react-redux';
 import * as burgerBuilderActions from '../../store/actions/index';
+import axios from '../../axios-orders';
 
 class BurgerBuilder extends Component {
 	// constructor(props) {
@@ -16,21 +16,10 @@ class BurgerBuilder extends Component {
 	//     this.state = {...}
 	// }
 	state = {
-		purchasing: false,
-		loading: false,
-		error: false
+		purchasing: false
 	};
 
-	componentDidMount() {
-		axios
-			.get('https://react-my-burger-b3c2d.firebaseio.com/ingredients.json')
-			.then((response) => {
-				this.setState({ ingredients: response.data });
-			})
-			.catch((eror) => {
-				this.setState({ error: true });
-			});
-	}
+	componentDidMount() {}
 
 	updatePurchaseState(ingredients) {
 		const sum = Object.keys(ingredients)
@@ -87,10 +76,7 @@ class BurgerBuilder extends Component {
 				/>
 			);
 		}
-		if (this.state.loading) {
-			orderSummary = <Spinner />;
-		}
-		// {salad: true, meat: false, ...}
+
 		return (
 			<Aux>
 				<Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
