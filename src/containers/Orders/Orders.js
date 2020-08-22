@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import Order from '../../components/Order/Order';
 import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
@@ -18,7 +19,6 @@ class Orders extends Component {
 				<Order key={order.id} ingredients={order.ingredients} price={order.price} />
 			));
 		}
-
 		return <div>{orders}</div>;
 	}
 }
@@ -32,7 +32,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onFetchOrders: () => dispatch(actions.fetchOrders)
+		onFetchOrders: () => dispatch(actions.fetchOrders())
 	};
 };
 
