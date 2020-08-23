@@ -1,9 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
-import axios from '../../axios-orders';
 import { updateObject } from '../../store/utility';
 
 const initialState = {
-	tokent: null,
+	token: null,
 	userId: null,
 	error: null,
 	loading: false
