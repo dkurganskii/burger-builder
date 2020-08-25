@@ -19,14 +19,14 @@ describe('<NavigationItems />', () => {
 		expect(wrapper.find(NavigationItem)).toHaveLength(2);
 	});
 
-	//     it('should render three <NavigationItem /> elements if authenticated', () => {
-	//         // wrapper = shallow(<NavigationItems isAuthenticated />);
-	//         wrapper.setProps({isAuthenticated: true});
-	//         expect(wrapper.find(NavigationItem)).toHaveLength(3);
-	//     });
+	it('should render three <NavigationItem /> elements if authenticated', () => {
+		// wrapper = shallow(<NavigationItems isAuthenticated />);
+		wrapper.setProps({ isAuthenticated: true });
+		expect(wrapper.find(NavigationItem)).toHaveLength(3);
+	});
 
-	//     it('should an exact logout button', () => {
-	//         wrapper.setProps({isAuthenticated: true});
-	//         expect(wrapper.contains(<NavigationItem link="/logout">Logout</NavigationItem>)).toEqual(true);
-	//     });
+	it('should an exact logout button', () => {
+		wrapper.setProps({ isAuthenticated: true });
+		expect(wrapper.contains(<NavigationItem link="/logout">Logout</NavigationItem>)).toEqual(true);
+	});
 });
